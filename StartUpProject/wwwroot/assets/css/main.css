@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    padding: 20px 0px !important;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+    nav ul li a {
+        color: white !important;
+        font-size: 17px !important;
+    }
+
+header {
+    color: white;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    background-color: #090E34;
+}
+
+    header h2 {
+        padding-left: 35%;
+        padding-right: 35%;
+        font-weight: bold;
+        font-size: 50px;
+    }
+
+a {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: white;
+    }
+
+.btn-signin, .btn-signup, .btn-learn, .btn-getst {
+    padding: 15px 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+}
+
+.btn-signin {
+    background-color: transparent;
+}
+
+.btn-signup, .btn-getst {
+    background-color: #4768EE;
+}
+
+
+header > div > p {
+    padding-left: 35%;
+    padding-right: 35%;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(218, 218, 218);
+}
+
+.btn-learn {
+    background-color: #1e2455;
+}
+
+.features {
+    background-color: #0B113A;
+}
+
+.title > h2 {
+    padding-left: 35%;
+    padding-right: 35%;
+    font-weight: bold;
+    font-size: 45px;
+    color: white;
+}
+
+.title > p {
+    padding-left: 33%;
+    padding-right: 33%;
+    font-size: 20px;
+    color: rgb(184, 184, 184);
+}
+
+.icons > i {
+    font-size: 50px;
+    padding: 8px;
+    border-radius: 5px;
+    color: #4A6CF7;
+    background-color: #121A4D;
+}
+
+.help {
+    padding-top: 50px;
+    padding-bottom: 150px;
+    background-color: #090E34;
+}
+
+.video {
+    border-radius: 10px;
+}
+
+.card {
+    color: white;
+    background-color: #1D2144 !important;
+}
+
+ul {
+    list-style: none;
+}
+
+    ul > li > i {
+        color: #415DD4;
+        font-size: 15px !important;
+    }
+
+.name, .email {
+    padding: 10px 25px;
+    background-color: #242B51;
+    border: none;
+}
+
+.message {
+    background-color: #242B51;
+    border: none;
+}
+
+footer li {
+    font-size: 18px;
+    color: rgb(167, 167, 167);
+}

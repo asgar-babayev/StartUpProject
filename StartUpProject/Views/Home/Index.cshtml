@@ -1,0 +1,490 @@
+﻿@using StartUpProject.Models
+@model List<Testimonial>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-transparent fixed-top">
+        <div class="container">
+            <div class="container-fluid d-flex gap-5">
+                <a class="navbar-brand" href="#"><img class="logo" src="~/assets/images/logo.svg" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent ">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Pricing</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                Pages
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <form class="d-flex gap-2 " role="search">
+                            <a class="btn-signin" asp-controller="Auth" asp-action="Login" asp-area="Manage">Sign In</a>
+                            <a class="btn-signup" asp-controller="Auth" asp-action="Register" asp-area="Manage">Sign Up</a>
+                        </form>
+                    }
+                    else
+                    {
+                        <form class="d-flex gap-2 " role="search">
+                            <a class="btn-signup" asp-controller="Auth" asp-action="SignOut" asp-area="Manage">Log out</a>
+                            <a class="btn-signin" asp-controller="Dashboard" asp-action="Index" asp-area="Manage">Admin</a>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <div class="d-flex flex-column justify-content-lg-center align-items-lg-center text-center">
+            <h2>Startup Focused Tailwind CSS Template</h2>
+            <p class="pt-3">
+                A Complete Tailwind CSS Web Template Crafted for - Startup, SaaS, Business, Software and
+                Agencies. Comes
+                with high-quality design and everything you need!
+            </p>
+            <div class="d-flex pt-5 gap-3">
+                <button class="btn-getst" type="submit">Get Started</button>
+                <button class="btn-learn" type="submit">Learn More</button>
+            </div>
+        </div>
+    </header>
+    <section style="padding-top: 70px;" class="features">
+        <div class="d-flex flex-column title justify-content-lg-center align-items-lg-center text-center">
+            <h2>Main Features</h2>
+            <p>
+                There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration
+                in some form.
+            </p>
+        </div>
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-lg-4 pt-5">
+                    <div class="text-sm-start text-light icons">
+                        <i class="las la-cogs"></i>
+                        <h3>Crafted for Startups</h3>
+                        <p style="font-size: 15px; color: rgb(168, 168, 168);">
+                            Tuae nam ex similique incidunt
+                            expedita exerci tationem laudantium. Repellendus quisquam
+                            numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 pt-5">
+                    <div class="text-sm-start text-light icons">
+                        <i class="las la-cogs"></i>
+                        <h3>Crafted for Startups</h3>
+                        <p style="font-size: 15px; color: rgb(168, 168, 168);">
+                            Tuae nam ex similique incidunt
+                            expedita exerci tationem laudantium. Repellendus quisquam
+                            numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 pt-5">
+                    <div class="text-sm-start text-light icons">
+                        <i class="las la-cogs"></i>
+                        <h3>Crafted for Startups</h3>
+                        <p style="font-size: 15px; color: rgb(168, 168, 168);">
+                            Tuae nam ex similique incidunt
+                            expedita exerci tationem laudantium. Repellendus quisquam
+                            numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 pt-5">
+                    <div class="text-sm-start text-light icons">
+                        <i class="las la-cogs"></i>
+                        <h3>Crafted for Startups</h3>
+                        <p style="font-size: 15px; color: rgb(168, 168, 168);">
+                            Tuae nam ex similique incidunt
+                            expedita exerci tationem laudantium. Repellendus quisquam
+                            numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 pt-5">
+                    <div class="text-sm-start text-light icons">
+                        <i class="las la-cogs"></i>
+                        <h3>Crafted for Startups</h3>
+                        <p style="font-size: 15px; color: rgb(168, 168, 168);">
+                            Tuae nam ex similique incidunt
+                            expedita exerci tationem laudantium. Repellendus quisquam
+                            numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 pt-5">
+                    <div class="text-sm-start text-light icons">
+                        <i class="las la-cogs"></i>
+                        <h3>Crafted for Startups</h3>
+                        <p style="font-size: 15px; color: rgb(168, 168, 168);">
+                            Tuae nam ex similique incidunt
+                            expedita exerci tationem laudantium. Repellendus quisquam
+                            numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="help">
+        <div class="d-flex flex-column title justify-content-lg-center align-items-lg-center text-center">
+            <h2>We are ready to help</h2>
+            <p>
+                There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration
+                in some form.
+            </p>
+        </div>
+        <div class="d-flex justify-content-lg-center pt-5">
+            <img class="video" src="~/assets/images/video.jpg" alt="">
+        </div>
+    </section>
+    <section style="background-color: #090E34; padding-bottom: 5%;">
+        <div class="container" style="background-color: #0D133E; padding-top: 2%; padding-bottom: 2%;">
+            <div class="d-flex justify-content-lg-center gap-5">
+                <img width="200" src="~/assets/images/tailgrids.svg" alt="">
+                <img width="200" src="~/assets/images/lineicons.svg" alt="">
+                <img width="200" src="~/assets/images/ayroui.svg" alt="">
+                <img width="200" src="~/assets/images/plainadmin.svg" alt="">
+                <img width="150" src="~/assets/images/uideck.svg" alt="">
+            </div>
+        </div>
+    </section>
+    <section style="background-color: #090E34; padding-bottom: 5%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="d-flex justify-content-lg-center">
+                        <img width="500" src="~/assets/images/about-image-2.svg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-sm-start text-light">
+                        <h3>Bug free code</h3>
+                        <div class="w-100">
+                            <p style="font-size: 17px; width: 65%; color: rgb(168, 168, 168);">
+                                Lorem ipsum dolor sit
+                                amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                magna aliqua.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-sm-start text-light pt-5">
+                        <h3>Bug free code</h3>
+                        <div class="w-100">
+                            <p style="font-size: 17px; width: 65%; color: rgb(168, 168, 168);">
+                                Lorem ipsum dolor sit
+                                amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                magna aliqua.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-sm-start text-light pt-5">
+                        <h3>Bug free code</h3>
+                        <div class="w-100">
+                            <p style="font-size: 17px; width: 65%; color: rgb(168, 168, 168);">
+                                Lorem ipsum dolor sit
+                                amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                magna aliqua.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @if (Model != null && Model.Count > 0)
+    {
+        <section style="background-color: #090E34; padding-bottom: 5%;">
+            <div class="d-flex flex-column title justify-content-lg-center align-items-lg-center text-center">
+                <h2>What Our Users Says</h2>
+                <p>
+                    There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration
+                    in some form.
+                </p>
+            </div>
+            <div class="container pt-5">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4">
+                            <div class="card" style="padding: 50px;">
+                                <p>
+                                    @item.Description
+                                </p>
+                                <hr>
+                                <div class="pt-2 d-flex gap-3 align-items-sm-center">
+                                    <img width="50" height="50" src="~/assets/images/@item.Image" alt="">
+                                    <div class="d-flex flex-column">
+                                        <h4>@item.UserName</h4>
+                                        <small>@item.CompanyName</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    }
+    <section id="pricing" style="background-color: #090E34; padding-bottom: 5%;">
+        <div class="d-flex flex-column title justify-content-lg-center align-items-lg-center text-center">
+            <h2>Simple and Affordable Pricing</h2>
+            <p>
+                There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration
+                in some form.
+            </p>
+        </div>
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card" style="padding: 50px;">
+                        <div>
+                            <span class="text-lg-start fs-3 fw-bold">
+                                $40 <span style="color: rgb(173, 173, 173);">/mo</span>
+                            </span>
+                            <span class="float-end fs-4 fw-bold">Lite</span>
+                        </div>
+                        <p style="color: rgb(173, 173, 173);">
+                            Lorem ipsum dolor sit amet adiscing elit Mauris egestas
+                            enim.
+                        </p>
+                        <button class="btn-getst" type="submit">Start Free Trial</button>
+                        <hr>
+                        <div class="pt-2 d-flex gap-3 align-items-sm-center">
+                            <ul>
+                                <li><i class="lar la-check-circle"></i> All UI Components</li>
+                                <li><i class="lar la-check-circle"></i> Use with Unlimited Projects</li>
+                                <li><i class="lar la-check-circle"></i> Commercial Use</li>
+                                <li><i class="lar la-check-circle"></i> Email Support</li>
+                                <li><i class="lar la-check-circle"></i> Lifetime Access</li>
+                                <li><i class="lar la-check-circle"></i> Free Lifetime Updates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card" style="padding: 50px;">
+                        <div>
+                            <span class="text-lg-start fs-3 fw-bold">
+                                $40 <span style="color: rgb(173, 173, 173);">/mo</span>
+                            </span>
+                            <span class="float-end fs-4 fw-bold">Lite</span>
+                        </div>
+                        <p style="color: rgb(173, 173, 173);">
+                            Lorem ipsum dolor sit amet adiscing elit Mauris egestas
+                            enim.
+                        </p>
+                        <button class="btn-getst" type="submit">Start Free Trial</button>
+                        <hr>
+                        <div class="pt-2 d-flex gap-3 align-items-sm-center">
+                            <ul>
+                                <li><i class="lar la-check-circle"></i> All UI Components</li>
+                                <li><i class="lar la-check-circle"></i> Use with Unlimited Projects</li>
+                                <li><i class="lar la-check-circle"></i> Commercial Use</li>
+                                <li><i class="lar la-check-circle"></i> Email Support</li>
+                                <li><i class="lar la-check-circle"></i> Lifetime Access</li>
+                                <li><i class="lar la-check-circle"></i> Free Lifetime Updates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card" style="padding: 50px;">
+                        <div>
+                            <span class="text-lg-start fs-3 fw-bold">
+                                $40 <span style="color: rgb(173, 173, 173);">/mo</span>
+                            </span>
+                            <span class="float-end fs-4 fw-bold">Lite</span>
+                        </div>
+                        <p style="color: rgb(173, 173, 173);">
+                            Lorem ipsum dolor sit amet adiscing elit Mauris egestas
+                            enim.
+                        </p>
+                        <button class="btn-getst" type="submit">Start Free Trial</button>
+                        <hr>
+                        <div class="pt-2 d-flex gap-3 align-items-sm-center">
+                            <ul>
+                                <li><i class="lar la-check-circle"></i> All UI Components</li>
+                                <li><i class="lar la-check-circle"></i> Use with Unlimited Projects</li>
+                                <li><i class="lar la-check-circle"></i> Commercial Use</li>
+                                <li><i class="lar la-check-circle"></i> Email Support</li>
+                                <li><i class="lar la-check-circle"></i> Lifetime Access</li>
+                                <li><i class="lar la-check-circle"></i> Free Lifetime Updates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-color: #090E34; padding-bottom: 5%;">
+        <div class="d-flex flex-column title justify-content-lg-center align-items-lg-center text-center">
+            <h2>Simple and Affordable Pricing</h2>
+            <p>
+                There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration
+                in some form.
+            </p>
+        </div>
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="d-flex justify-content-lg-center">
+                        <div style="background-color: #1D2144; color: white; padding: 91.5px 60px; border-radius: 5px;">
+                            <h3>Need Help? Open a Ticket</h3>
+                            <p>Our support team will get back to you ASAP via email.</p>
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-lg-6 pt-3">
+                                        <label for="name" class="pb-2">Your Name</label>
+                                        <input type="text" class="form-control name" placeholder="Enter your name">
+                                    </div>
+                                    <div class="col-lg-6 pt-3">
+                                        <label for="email" class="pb-2">Your Email</label>
+                                        <input type="email" class="form-control email" placeholder="Enter your email">
+                                    </div>
+                                    <div class="col-lg-12 pt-3">
+                                        <label for="email" class="pb-2">Your Email</label>
+                                        <textarea type="email" class="form-control message"
+                                                  placeholder="Enter your message" rows="4"></textarea>
+                                    </div>
+                                    <div class="pt-3">
+                                        <button class="btn-getst" type="submit">Submit Ticket</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card" style="padding: 50px; background-color: #101848 !important;">
+                        <h4>Subscribe to receive future updates</h4>
+                        <p style="color: rgb(173, 173, 173);">
+                            Lorem ipsum dolor sit amet adiscing elit Mauris egestas
+                            enim.
+                        </p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-12 pt-3">
+                                <label for="name" class="pb-2">Your Name</label>
+                                <input type="text" class="form-control name" placeholder="Enter your name">
+                            </div>
+                            <div class="col-lg-12 pt-3">
+                                <label for="email" class="pb-2">Your Email</label>
+                                <input type="email" class="form-control email" placeholder="Enter your email">
+                            </div>
+                            <div class="col-lg-12 pt-3">
+                                <button class="btn-getst form-control" type="submit">Subscribe</button>
+                            </div>
+                            <div class="col-lg-12 pt-3 text-center">
+                                <span>No spam guaranteed, So please don’t send any spam mail.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background-color: #090E34; ">
+        <div class="container" style=" padding-bottom: 5%;">
+            <div class="row text-light">
+                <div class="col-lg-6">
+                    <img src="~/assets/images/logo.svg" alt="">
+                    <div class="w-100">
+                        <p class="pt-3 fw-bold" style="color: rgb(161, 161, 161); width: 50%;">
+                            Lorem ipsum dolor sit
+                            amet, consectetur
+                            adipiscing elit. Integer lobortis.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <ul>
+                        <li>
+                            <h4 class="text-nowrap">Useful Links</h4>
+                        </li>
+                        <li>Blog</li>
+                        <li>Pricing</li>
+                        <li>About</li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <ul>
+                        <li>
+                            <h4 class="text-nowrap">Terms</h4>
+                        </li>
+                        <li>TOS</li>
+                        <li>Privacy Policy</li>
+                        <li>Refund Policy</li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <ul>
+                        <li>
+                            <h4 class="text-nowrap">Support & Help</h4>
+                        </li>
+                        <li>Open Support Ticket</li>
+                        <li>Terms of Use</li>
+                        <li>About</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="padding: 40px 0px; background-color: #141C51;">
+            <div class="d-flex flex-column title justify-content-lg-center align-items-lg-center text-center">
+                <span class="text-light">© Crafted by UIdeck for You!</span>
+            </div>
+        </div>
+    </footer>
+    <script src="~/assets/js/main.js"></script>
+</body>
+
+</html>
